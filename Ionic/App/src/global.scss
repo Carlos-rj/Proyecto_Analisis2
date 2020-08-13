@@ -24,3 +24,8 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.background-image{
+  //--ion-background-color: rgb(210, 214, 203);
+  --background: url(./assets/mural2.png) no-repeat center center / cover;
+}
