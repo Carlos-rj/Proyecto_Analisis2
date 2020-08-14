@@ -16,10 +16,15 @@ import {firebaseConfig} from '../environments/environment';
 
 import {GooglePlus} from '@ionic-native/google-plus/ngx';
 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
