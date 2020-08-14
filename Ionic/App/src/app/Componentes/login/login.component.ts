@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// tslint:disable-next-line:import-spacing
+import { LoginService } from  '../../Servicios/login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +11,17 @@ export class LoginComponent implements OnInit {
 
   user: string;
   password: string;
-  constructor() { }
+  constructor(private authservice: LoginService) { }
 
   ngOnInit() {}
 
-  logingoogle(){
-  alert('asiendo login');
+  logingoogle() {
+    this.authservice.logingoogle().then( () => {
+      // this.router.navigate(['/home']);
+      alert('si se logro');
+    }).catch(err => {
+      alert('los datos son incorrectos');
+    });
+
   }
 }
