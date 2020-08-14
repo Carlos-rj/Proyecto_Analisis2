@@ -23,10 +23,17 @@
             <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña" style="background: var(--ion-item-background, var(--ion-background-color, #fff));"></ion-input>
           </div>
         </div>
-
         <ion-button expand="block" color="light" size="large" >Ingresar</ion-button>
       </div>
+      <ion-grid>
+        <ion-col size="3">
+          <ion-button class="google" (click)="logingoogle()">
+            <ion-icon name="logo-google"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-grid>
     </div>
+
     <div style="display: flex; margin-top: 15px" >
       <!--<a style="color: white"><u (click)="register()">Registrarse</u></a>-->
     </div>
