@@ -70,7 +70,8 @@
     "plugins": {
       "cordova-plugin-googleplus": {
         "REVERSED_CLIENT_ID": "cam.robot.solar",
-        "WEB_APPLICATION_CLIENT_ID": "932233909521-k2p9m3647rstufi1pnd3270bankeh8vd.apps.googleusercontent.com"
+        "WEB_APPLICATION_CLIENT_ID": "932233909521-k2p9m3647rstufi1pnd3270bankeh8vd.apps.googleusercontent.com",
+        "PLAY_SERVICES_VERSION": "15.0.1"
       },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
