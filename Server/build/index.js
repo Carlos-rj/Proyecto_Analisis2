@@ -19,7 +19,7 @@ class Server {
         this.app.use(cors_1.default());
     }
     routes() {
-        this.app.use(indexRoutes_1.default);
+        this.app.use('/api', indexRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

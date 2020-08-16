@@ -21,7 +21,7 @@ class Server{
         this.app.use(cors());    }
 
     routes(): void{
-        this.app.use(indexRoutes)
+        this.app.use('/api', indexRoutes);
     }
 
     start(): void{

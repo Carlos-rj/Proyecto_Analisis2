@@ -8,7 +8,7 @@ class IndexRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', indexControllers_1.indexController.index);
+        this.router.get('/login', indexControllers_1.indexController.login);
     }
 }
 const indexRoutes = new IndexRoutes();
