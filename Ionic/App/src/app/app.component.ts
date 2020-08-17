@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import {GlobalService} from './Servicios/global.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -11,44 +13,78 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
+  public selectedIndex2 = 0;
+  public selectedIndex3 = 0;
   public appPages = [
     {
-      title: 'Inbox',
-      url: '/folder/Inbox',
+      title: 'Compras1',
+      url: '/folder/Compras1',
       icon: 'mail'
     },
     {
-      title: 'Outbox',
-      url: '/folder/Outbox',
+      title: 'Compras2',
+      url: '/folder/Compras2',
       icon: 'paper-plane'
     },
     {
-      title: 'Favorites',
-      url: '/folder/Favorites',
+      title: 'Compras3',
+      url: '/folder/Compras3',
       icon: 'heart'
     },
     {
-      title: 'Archived',
-      url: '/folder/Archived',
+      title: 'Compras4',
+      url: '/folder/Compras4',
       icon: 'archive'
     },
     {
-      title: 'Trash',
-      url: '/folder/Trash',
+      title: 'Compras5',
+      url: '/folder/Compras5',
+      icon: 'trash'
+    }
+  ];
+
+  public appPages2 = [
+    {
+      title: 'Ventas1',
+      url: '/folder/Ventas1',
+      icon: 'paper-plane'
+    },
+    {
+      title: 'Ventas2',
+      url: '/folder/Ventas2',
+      icon: 'heart'
+    },
+    {
+      title: 'Ventas3',
+      url: '/folder/Ventas3',
+      icon: 'archive'
+    },
+    {
+      title: 'Ventas4',
+      url: '/folder/Ventas4',
       icon: 'trash'
     },
     {
-      title: 'Spam',
-      url: '/folder/Spam',
+      title: 'Ventas5',
+      url: '/folder/Ventas5',
       icon: 'warning'
     }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+
+
+  public appPages3 = [
+    {
+      title: 'Log out',
+      url: '/login',
+      icon: 'trash'
+    }
+  ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public global: GlobalService
   ) {
     this.initializeApp();
   }
@@ -62,8 +98,20 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const path = window.location.pathname.split('folder/')[1];
+    console.log(path);
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+    if (path !== undefined) {
+      this.selectedIndex2 = this.appPages2.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+    }
+    if (path !== undefined) {
+      this.selectedIndex3 = this.appPages3.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+    }
+  }
+
+  salida(i){
+    this.selectedIndex3 = i;
+    this.global.usuario = null;
   }
 }

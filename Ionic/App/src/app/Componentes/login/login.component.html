@@ -12,7 +12,7 @@
             <div class="input-group-prepend">
               <ion-icon class="input-group-text" name="people-outline" style="width: 100%; height: 100%"></ion-icon>
             </div>
-            <ion-input [(ngModel)]="user"  placeholder="Usuario" style="background: var(--ion-item-background, var(--ion-background-color, #fff));"></ion-input>
+            <ion-input placeholder="Usuario" (ionChange)="Userinput($event)" style="background: var(--ion-item-background, var(--ion-background-color, #fff));"></ion-input>
           </div>
         </div>
         <div style="margin-bottom: 15px">
@@ -20,13 +20,20 @@
             <div class="input-group-prepend">
               <ion-icon class="input-group-text" name="key-outline"></ion-icon>
             </div>
-            <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña" style="background: var(--ion-item-background, var(--ion-background-color, #fff));"></ion-input>
+            <ion-input (ionChange)="Passwordinput($event)" type="password" placeholder="Contraseña" style="background: var(--ion-item-background, var(--ion-background-color, #fff));"></ion-input>
           </div>
         </div>
-
-        <ion-button expand="block" color="light" size="large" >Ingresar</ion-button>
+        <ion-button expand="block" color="light" size="large" (click)="Loginnormal()">Ingresar</ion-button>
       </div>
+      <ion-grid>
+        <ion-col size="3">
+          <ion-button class="google" (click)="logingoogle()">
+            <ion-icon name="logo-google"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-grid>
     </div>
+
     <div style="display: flex; margin-top: 15px" >
       <!--<a style="color: white"><u (click)="register()">Registrarse</u></a>-->
     </div>

@@ -38,8 +38,8 @@
 }
 
 .user_card {
-  height: 400px;
-  width: 95%;
+  height: 350px;
+  width: 90%;
   margin: auto;
   margin-top: 50%;
   background: rgba(88, 141, 243, 0.43);
@@ -57,4 +57,8 @@
 
 ion-input{
   border-radius: 5px;
+}
+
+.google{
+  --background: #DB4437;
 }
