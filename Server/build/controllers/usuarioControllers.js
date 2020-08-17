@@ -12,7 +12,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.usuarioController = void 0;
 const database_1 = __importDefault(require("../database"));
 class UsuarioController {
     perfil(req, res) {
@@ -30,6 +29,36 @@ class UsuarioController {
             else {
                 res.json({ "res": false });
             }
+        });
+    }
+    create_user(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
+            const rows = yield database_1.default.query('INSERT INTO Market.Usuario set ?', [req.body]);
+            res.json({ text: 'Usuario Creado' });
+        });
+    }
+    //METODO PARA ACTUALIZAR USUARIO
+    update_user(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { idUsuario } = req.params;
+            const response = yield database_1.default.query('UPDATE Market.Usuario SET ? Where idUsuario = ?', [req.body, idUsuario]);
+            //console.log(response);
+            if (response.changedRows > 0) {
+                res.json({ text: 'Usuario Modificado' });
+                res.send(true);
+            }
+            else {
+                res.send(false);
+            }
+        });
+    }
+    //ENDPOINT PARA LA ELIMINACION DE USUARIO
+    delete_user(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { idUsuario } = req.params;
+            const response = yield database_1.default.query('DELETE from Market.Usuario Where idUsuario = ?', [idUsuario]);
+            res.json({ text: 'Usuario Eliminado' });
         });
     }
 }
