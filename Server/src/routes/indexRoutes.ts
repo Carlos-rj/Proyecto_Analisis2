@@ -11,7 +11,7 @@ class IndexRoutes {
    }
 
    config(): void {
-       this.router.get('/login' , indexController.login);
+       this.router.post('/login' , indexController.login);
    }
 }
 
