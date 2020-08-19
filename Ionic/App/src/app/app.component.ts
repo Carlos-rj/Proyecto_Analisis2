@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import {GlobalService} from './Servicios/global.service';
+import {EliminarService} from  './Servicios/eliminar.service'
 
 @Component({
   selector: 'app-root',
@@ -76,15 +77,23 @@ export class AppComponent implements OnInit {
     {
       title: 'Log out',
       url: '/login',
+      icon: 'warning'
+    },
+    {
+      title: 'Eliminar Usuario',
+      url: '/login',
       icon: 'trash'
     }
   ];
+
+  gg: string
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public global: GlobalService
+    public global: GlobalService,
+    public delate: EliminarService
   ) {
     this.initializeApp();
   }
@@ -111,7 +120,32 @@ export class AppComponent implements OnInit {
   }
 
   salida(i){
-    this.selectedIndex3 = i;
-    this.global.usuario = null;
+    if (i == 0){
+      this.selectedIndex3 = i;
+      this.global.usuario = null;
+    }
+    else if (i == 1){
+      if (this.global.usuario > 10000000000000){
+        this.gg = `${this.global.usuario/100000}`
+        console.log(parseFloat(this.gg).toFixed(0));
+
+        this.delate.eliminar(parseFloat(this.gg).toFixed(0)).subscribe(
+            res =>{
+              alert("Usuario eliminado Google")
+            },
+            error => console.error(error)
+        )
+      }
+      else {
+        this.delate.eliminar(this.global.usuario).subscribe(
+            res =>{
+              alert("Usuario eliminado")
+            },
+            error => console.error(error)
+        )
+      }
+
+    }
+
   }
 }

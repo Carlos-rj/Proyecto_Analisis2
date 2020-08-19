@@ -15,8 +15,8 @@ export class HomePage implements OnInit {
     if (this.global.usuario === null){
       this.router.navigate([`/`]);
     }
-    console.log(this.global.usuario);
-    this.user = this.global.usuario;
+    //console.log(this.global.usuario);
+    this.user = this.global.nombre;
   }
 
 }

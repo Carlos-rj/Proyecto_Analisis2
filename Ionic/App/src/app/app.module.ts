@@ -18,6 +18,10 @@ import {GooglePlus} from '@ionic-native/google-plus/ngx';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+
+import {LoginComponent} from './Componentes/login/login.component';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [
     GooglePlus,
