@@ -3,6 +3,7 @@ import {LoginService} from  '../../Servicios/login.service';
 import {GlobalService} from '../../Servicios/global.service';
 import {Router} from '@angular/router';
 import {Login} from '../../Modelos/Login';
+import {googleusuario} from '../../Modelos/google';
 import {Cuenta} from '../../Modelos/Cuenta';
 
 @Component({
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   user: number;
   password: string;
   request: Login;
+  requestG: googleusuario;
   gg: string
   
   newlogin(user, password): Login{
@@ -46,7 +48,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate([`/home/${this.global.usuario}`]);
             }
             else{
-              alert("aqui va registrar");
+                this.authservice.llamagoogle()
             }
           },
           error => console.error(error)
