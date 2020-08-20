@@ -19,7 +19,16 @@ const routes: Routes = [
   {
     path: 'home/:usuario',
     loadChildren: () => import('./Componentes/home/home.module').then(m => m.HomePageModule)
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./Componentes/registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'perfil/:usuario',
+    loadChildren: () => import('./Componentes/perfil/perfil.module').then( m => m.PerfilPageModule)
   }
+
 ];
 
 @NgModule({

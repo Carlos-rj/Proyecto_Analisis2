@@ -12,6 +12,7 @@ class IndexRoutes {
 
    config(): void {
        this.router.post('/login' , indexController.login);
+       this.router.get('/login/colonias', indexController.colonias);
    }
 }
 

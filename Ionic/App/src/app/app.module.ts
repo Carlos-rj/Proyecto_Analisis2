@@ -23,6 +23,7 @@ import { HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './Componentes/login/login.component';
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
