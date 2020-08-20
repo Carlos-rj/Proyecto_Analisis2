@@ -29,6 +29,16 @@ class IndexController {
             res.json({"res":false}); 
         }        
     }
+
+    public async colonias (req: Request, res: Response){
+        const rows = await pool.query('SELECT idColonia, nombre_residencial, nombre_colonia from Market.Colonia C INNER JOIN Market.Residencial R ON R.idResidencial = C.id_Residencial;');
+        if(rows.length > 0)
+        {
+            res.json(rows);
+        }
+    }
+
+
 }
 
 export const indexController = new IndexController();

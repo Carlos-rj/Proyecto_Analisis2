@@ -6,12 +6,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import {GlobalService} from './Servicios/global.service';
 import {EliminarService} from  './Servicios/eliminar.service'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
+
+
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public selectedIndex2 = 0;
@@ -93,7 +96,8 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public global: GlobalService,
-    public delate: EliminarService
+    public delate: EliminarService,
+    private router: Router,
   ) {
     this.initializeApp();
   }
@@ -117,6 +121,10 @@ export class AppComponent implements OnInit {
     if (path !== undefined) {
       this.selectedIndex3 = this.appPages3.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+  }
+
+  VerPerfil(){
+    this.router.navigate([`/perfil/${this.global.usuario}`]);
   }
 
   salida(i){
@@ -146,6 +154,5 @@ export class AppComponent implements OnInit {
       }
 
     }
-
   }
 }

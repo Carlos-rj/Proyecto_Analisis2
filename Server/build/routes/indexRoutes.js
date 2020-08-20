@@ -9,6 +9,7 @@ class IndexRoutes {
     }
     config() {
         this.router.post('/login', indexControllers_1.indexController.login);
+        this.router.get('/login/colonias', indexControllers_1.indexController.colonias);
     }
 }
 const indexRoutes = new IndexRoutes();

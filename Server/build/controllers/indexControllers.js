@@ -38,5 +38,13 @@ class IndexController {
             }
         });
     }
+    colonias(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const rows = yield database_1.default.query('SELECT idColonia, nombre_residencial, nombre_colonia from Market.Colonia C INNER JOIN Market.Residencial R ON R.idResidencial = C.id_Residencial;');
+            if (rows.length > 0) {
+                res.json(rows);
+            }
+        });
+    }
 }
 exports.indexController = new IndexController();

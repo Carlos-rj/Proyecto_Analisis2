@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   user: number;
   password: string;
   request: Login;
-  gg: string
+  gg: string;
   
   newlogin(user, password): Login{
     return {
@@ -83,6 +83,10 @@ export class LoginComponent implements OnInit {
     else{
       alert('Usuario o contraseña vacios');
     }
+  }
+
+  Registrarse(){
+      this.router.navigate([`/registro`]);
   }
 
   Userinput(value){
