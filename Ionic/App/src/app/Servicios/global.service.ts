@@ -6,5 +6,6 @@ import { Injectable } from '@angular/core';
 export class GlobalService {
   public usuario: number;
   public nombre: string;
+  public id: number
   constructor() { }
 }

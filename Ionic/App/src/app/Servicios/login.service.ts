@@ -99,6 +99,6 @@ export class LoginService {
   }
 
   returnLogin(){
-    this.router.navigate([`/home/${this.gg}`]);
+    this.router.navigate([`/home/${parseFloat(this.gg).toFixed(0)}`]);
   }
 }

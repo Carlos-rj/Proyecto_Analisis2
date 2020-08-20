@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import {GlobalService} from './Servicios/global.service';
 import {EliminarService} from  './Servicios/eliminar.service'
-import {Router} from '@angular/router';
+import {Router,ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -90,6 +90,7 @@ export class AppComponent implements OnInit {
   ];
 
   gg: string
+  folder: number
 
   constructor(
     private platform: Platform,
@@ -98,6 +99,7 @@ export class AppComponent implements OnInit {
     public global: GlobalService,
     public delate: EliminarService,
     private router: Router,
+    private activatedRoute: ActivatedRoute,
   ) {
     this.initializeApp();
   }
@@ -124,7 +126,7 @@ export class AppComponent implements OnInit {
   }
 
   VerPerfil(){
-    this.router.navigate([`/perfil/${this.global.usuario}`]);
+    this.router.navigate([`/perfil/${this.global.id}`]);
   }
 
   salida(i){

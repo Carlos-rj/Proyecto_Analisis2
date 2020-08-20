@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
   logingoogle() {
     this.authservice.logingoogle().then( () => {
       console.log(this.global.usuario);
-      this.gg = `${this.global.usuario/100000}`
+      this.gg = `${this.global.usuario/100000}`;
+      // this.global.usuario = +Number.parseFloat(this.gg).toFixed(0)
       console.log(parseFloat(this.gg).toFixed(0));
 
       this.request = this.newlogin(parseFloat(this.gg).toFixed(0), 1234);
@@ -45,7 +46,7 @@ export class LoginComponent implements OnInit {
             console.log(this.global.nombre);
             // @ts-ignore
             if (res.res != false){
-              this.router.navigate([`/home/${this.global.usuario}`]);
+                this.router.navigate([`/home/${parseFloat(this.gg).toFixed(0)}`]);
             }
             else{
                 this.authservice.llamagoogle()

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {AlertController} from "@ionic/angular";
 import {PerfilService} from "../../Servicios/perfil.service";
 import {GlobalService} from "../../Servicios/global.service";
@@ -27,7 +27,7 @@ export class PerfilPage implements OnInit {
   tipo_usaurio_st: string;
   id_colonia1: number;
   request: registro;
-
+  folder: number
   newUser(idusuario1, nombres1, apellidos1, fecha_nacimiento1, correo_electronico1, contrasena1, descripcion1, tipo_usuario1, id_colonia1) : registro{
     return{
       idusuario: idusuario1,
@@ -43,10 +43,12 @@ export class PerfilPage implements OnInit {
   };
 
 
-  constructor(private perfilService: PerfilService, private registroService: RegistroService, public router : Router, private global : GlobalService,  public alertController: AlertController) { }
+  constructor(private activatedRoute: ActivatedRoute, private perfilService: PerfilService, private registroService: RegistroService, public router : Router, private global : GlobalService,  public alertController: AlertController) { }
 
   ngOnInit() {
-    this.perfilService.getPerfil(this.global.usuario).subscribe(
+    this.folder = +this.activatedRoute.snapshot.paramMap.get('usuario');
+    // alert(this.folder)
+    this.perfilService.getPerfil(this.folder).subscribe(
         res =>{
           console.log(res);
           this.setInfo(res);
@@ -87,7 +89,7 @@ export class PerfilPage implements OnInit {
   }
 
   returnHome(){
-    this.router.navigate([`/home/${this.global.usuario}`]);
+    this.router.navigate([`/home/${this.folder}`]);
   }
 
   setInfo(res)
