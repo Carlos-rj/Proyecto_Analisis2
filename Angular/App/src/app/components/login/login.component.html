@@ -4,6 +4,9 @@
       <img src="assets/escudo10.png" class="brand_logo" alt="Logo">
     </div>
   </div>
+  <br>
+  <br>
+  <br>
   <div class="form_container">
     <div style="margin-bottom: 15px">
       <div style="display: flex; justify-content: center">
@@ -34,7 +37,14 @@
       </div>
     </div>
     <div style="text-align: center">
+      
       <button mat-raised-button color="accent" (click)="login()">Ingresar</button>
     </div>
+    <div style="text-align: center;">
+      <button class="g-signin2" color="accent" data-onsuccess="onSignIn()">Ingresar con Google</button><button mat-raised-button color="pimary"  color="accent" (click)="iniciarSesion()"><mat-icon>login</mat-icon></button>
+      <br>
+      <span style="color:red; font-weight: bold;">{{errorAutenticacion}}</span>
+    </div>
+    
   </div>
 </div>
